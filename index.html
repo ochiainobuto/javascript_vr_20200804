@@ -11,13 +11,13 @@
 <body>
 
 
-    <a-scene>
+    <a-scene renderer=" gammaOutput: true;">
         <a-assets>
             <a-asset-item id="fish1" src="Fish_lp.glb"></a-asset-item>
 
         </a-assets>
 
-        <a-entity gltf-model="#fish1" scale="1 1 1" animation-mixer></a-entity>
+        <a-entity gltf-model="#fish1" scale="0.1 0.1 0.1" animation-mixer></a-entity>
 
     </a-scene>
     <script>
