@@ -1,11 +1,11 @@
 <html>
 
 <head>
-    <!-- Aframe読み込む -->
-    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <!-- A-Frameを読み込み -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 
-    <!-- aframe-extras読み込み -->
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
+    <!-- glTFに含まれたアニメーションを再生するためにaframe-extrasをロード -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
 </head>
 
 <body>
@@ -36,23 +36,17 @@
         </a-entity>
     </a-scene>
     <script>
-        //document.getElementById('myCameraPosition').setAttribute('position', { x: 0, y: 0, z: 0 });
-        document.getElementById("request_permission").addEventListener("click", function () {
-            if (
-                DeviceMotionEvent &&
-                DeviceMotionEvent.requestPermission &&
-                typeof DeviceMotionEvent.requestPermission === 'function'
-            ) {
-                DeviceMotionEvent.requestPermission();
-            }
-            if (
-                DeviceOrientationEvent &&
-                DeviceOrientationEvent.requestPermission &&
-                typeof DeviceOrientationEvent.requestPermission === 'function'
-            ) {
-                DeviceOrientationEvent.requestPermission();
-            }
-        })
+        var box = document.getElementById("box");
+
+        // 文字列で設定
+        box.setAttribute("position", "x y z")
+
+        // 連想配列形式で設定
+        box.setAttribute("position", { x: -1, y: -1, z: -3 });
+
+        // Vector3形式データも設定できる。
+        var pos = new THREE.Vector3(-1, 1.5, -3);
+        box.setAttribute("position", pos);
     </script>
 </body>
 
